@@ -41,7 +41,7 @@ def load_listings(f):
             for i, column_name in enumerate(header):
                 row_dict[column_name] = row[i]
             listings.append(row_dict)
-    return listings,
+    return listings
 
 
     
