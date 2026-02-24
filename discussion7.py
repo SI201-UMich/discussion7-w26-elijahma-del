@@ -36,7 +36,7 @@ def load_listings(f):
         header = next(reader)
         print("header", header)
         listings = []
-        for row in header:
+        for row in reader:
             row_dict = {}
             for i, column_name in enumerate(header):
                 row_dict[column_name] = row[i]
@@ -116,14 +116,14 @@ def write_summary_csv(out_filename, avg_prices):
             Writes a CSV file with header: neighbourhood_group, room_type, average_price
     """
     pass
-with open(out_filename, 'w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(['neighbourhood_group', 'room_type','average_price'])
+    with open(out_filename,'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['neighbourhood_group', 'room_type','average_price'])
 
     for key, val in avg_prices.items():
         row = [key[0], key[1], val]
         writer.writerow(row)
-        
+
 
 ###############################################################################
 ##### UNIT TESTS (Do not modify the code below!)
